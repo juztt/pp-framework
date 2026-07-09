@@ -1,0 +1,36 @@
+<% if (typeof currentUser !== 'undefined' && currentUser) { %>
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="/dashboard" class="navbar-brand">
+      <strong><%= appName %></strong>
+    </a>
+    <button
+      type="button"
+      class="navbar-toggle"
+      aria-label="เปิดเมนู"
+      aria-expanded="false"
+      data-navbar-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="navbar-menu" data-navbar-menu>
+      <li><a href="/dashboard">หน้าหลัก</a></li>
+      <% if (currentUser.role === 'admin') { %>
+        <li><a href="#">ผู้ใช้</a></li>
+        <li><a href="#">ตั้งค่า</a></li>
+      <% } %>
+      <li class="navbar-user">
+        <span class="navbar-user-name">
+          <%= currentUser.full_name || currentUser.username %>
+          <small>(<%= currentUser.role %>)</small>
+        </span>
+        <form action="/logout" method="post" class="navbar-logout-form">
+          <button type="submit" class="btn btn-ghost btn-sm">ออกจากระบบ</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+<% } %>

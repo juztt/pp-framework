@@ -1,0 +1,71 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<main class="dashboard">
+  <div class="container">
+    <%- include('../partials/flash') %>
+
+    <header class="page-header">
+      <h1 class="page-title">แดชบอร์ด</h1>
+      <p class="page-subtitle">ยินดีต้อนรับ, <%= currentUser.full_name || currentUser.username %></p>
+    </header>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <div class="stat-label">ผู้ใช้ทั้งหมด</div>
+        <div class="stat-value"><%= stats.totalUsers %></div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-label">บทบาท</div>
+        <div class="stat-value"><%= currentUser.role %></div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-label">สถานะ</div>
+        <div class="stat-value">
+          <% if (currentUser.is_active) { %>
+            <span class="badge badge-success">ใช้งาน</span>
+          <% } else { %>
+            <span class="badge badge-danger">ระงับ</span>
+          <% } %>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">ข้อมูลบัญชี</h2>
+      <dl class="info-list">
+        <div class="info-row">
+          <dt>ชื่อผู้ใช้</dt>
+          <dd><%= currentUser.username %></dd>
+        </div>
+        <div class="info-row">
+          <dt>ชื่อ-นามสกุล</dt>
+          <dd><%= currentUser.full_name || '-' %></dd>
+        </div>
+        <div class="info-row">
+          <dt>อีเมล</dt>
+          <dd><%= currentUser.email || '-' %></dd>
+        </div>
+        <div class="info-row">
+          <dt>เข้าสู่ระบบล่าสุด</dt>
+          <dd><%= currentUser.last_login_at || 'ไม่มีข้อมูล' %></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="card">
+      <h2 class="card-title">เริ่มต้นใช้งาน</h2>
+      <p>
+        PP Framework พร้อมใช้งานแล้ว นี่คือหน้าแดชบอร์ดเริ่มต้น
+        คุณสามารถเริ่มเขียนฟีเจอร์ใหม่ได้ทันที โดยไม่ต้องตั้งค่าอะไรเพิ่ม
+      </p>
+      <ul class="todo-list">
+        <li>เปลี่ยนรหัสผ่านผู้ดูแลจากค่าเริ่มต้น</li>
+        <li>สร้าง migration ใหม่เพื่อเพิ่มตารางที่ต้องการ</li>
+        <li>เพิ่ม route / controller / view ตามฟีเจอร์</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

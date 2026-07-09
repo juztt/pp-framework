@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<main class="error-page">
+  <div class="error-card">
+    <div class="error-code">403</div>
+    <h1 class="error-title">ไม่มีสิทธิ์เข้าถึง</h1>
+    <p class="error-description"><%= description || 'หน้านี้สงวนไว้สำหรับผู้ใช้ที่มีสิทธิ์เท่านั้น' %></p>
+    <a href="/" class="btn btn-primary">กลับหน้าหลัก</a>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<main class="error-page">
+  <div class="error-card">
+    <div class="error-code">500</div>
+    <h1 class="error-title">เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์</h1>
+    <p class="error-description"><%= description || 'กรุณาลองใหม่อีกครั้ง หรือติดต่อผู้ดูแลระบบ' %></p>
+    <a href="/" class="btn btn-primary">กลับหน้าหลัก</a>
+
+    <% if (typeof stack !== 'undefined' && stack) { %>
+      <details class="error-stack">
+        <summary>รายละเอียดทางเทคนิค (Development)</summary>
+        <pre><%= stack %></pre>
+      </details>
+    <% } %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<main class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1 class="auth-title">เข้าสู่ระบบ</h1>
+      <p class="auth-subtitle"><%= appName %></p>
+    </div>
+
+    <% if (error) { %>
+      <div class="alert alert-error" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <form action="/login" method="post" class="auth-form" autocomplete="on" novalidate>
+      <div class="form-group">
+        <label for="username" class="form-label">ชื่อผู้ใช้</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-input"
+          value="<%= username || '' %>"
+          placeholder="กรอกชื่อผู้ใช้"
+          required
+          autofocus
+          autocomplete="username"
+          inputmode="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">รหัสผ่าน</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-input"
+          placeholder="กรอกรหัสผ่าน"
+          required
+          autocomplete="current-password"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+    </form>
+
+    <div class="auth-footer">
+      <p class="auth-hint">
+        ผู้ดูแลเริ่มต้น: <code>admin</code> / <code>admin123</code>
+      </p>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>

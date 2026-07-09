@@ -1,0 +1,6 @@
+<%# แสดงข้อความแจ้งเตือน (alert) %>
+<% if (locals.flash && locals.flash.message) { %>
+  <div class="alert alert-<%= locals.flash.type || 'info' %>" role="alert">
+    <%= locals.flash.message %>
+  </div>
+<% } %>

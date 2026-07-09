@@ -1,1 +1,34 @@
-{"name":"pp-framework","version":"1.0.0","scripts":{"start":"node app.js"}}
+{
+  "name": "pp-framework",
+  "version": "1.0.0",
+  "description": "PP Framework - ฐานสำหรับ Web App ทุกโปรเจกต์ในอนาคต",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "migrate": "node database/migrate.js",
+    "seed": "node database/seed.js"
+  },
+  "keywords": [
+    "framework",
+    "express",
+    "sqlite",
+    "vanilla-js",
+    "thai"
+  ],
+  "author": "PP Framework Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.0.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  }
+}
